@@ -12,25 +12,71 @@
 .hero-background {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
     url(./IMG/mist.png) center/cover no-repeat fixed;
-  height: 100vh;
+  height: 200vh;
   color: #fff;
 }
 .top-section {
+  position: fixed;
+  top: 0;
   height: 50px;
   width: 100%;
-  padding: 10px;
+  z-index: 3;
 }
 .burger-menu {
   height: 25px;
   width: 25px;
+  margin: 10px 10px 0 10px;
 }
 .line-1,
 .line-2,
 .line-3 {
   width: 25px;
   height: 3px;
-  background-color: #fff;
+  background-color: #000;
   margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.active .line-1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.active .line-2 {
+  opacity: 0;
+}
+.active .line-3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+.top-settings-menu {
+  position: absolute;
+  width: 80%;
+  background-color: #fff;
+  height: 100vh;
+  min-height: 200px;
+  color: #000;
+  z-index: 2;
+  transform: translateX(-100%);
+  transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.top-settings-menu.active {
+  transform: translateX(0);
+}
+.top-settings-menu h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.top-settings-menu button {
+  border: none;
+  background-color: #000;
+  color: #fff;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0.5rem;
 }
 .city-container {
   height: 10vh;
@@ -69,5 +115,19 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
+.bottom-main-menu-container {
+  background-color: #fff;
+  height: 80px;
+  position: fixed;
+  bottom: 2vh;
+  left: 5%;
+  width: 90%;
+  border-radius: 1rem;
+  color: #000;
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
