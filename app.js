@@ -6,15 +6,14 @@ const api = {
 //Burger menu selectors
 const burgerBtn = document.querySelector(".burger-menu");
 const BurgerMenu = document.querySelector(".top-settings-menu");
-const BurgerMenuWrap = document.querySelector(".top-menu-wrap");
 //bottom menu selectors
 const bottomMainContainer = document.querySelector(
   ".bottom-main-menu-container"
 );
 const homeBtn = document.querySelector(".fa-home");
 const returnBtn = document.querySelector(".fa-chevron-left");
-const searchBtn = document.querySelector(".searchActivatorBtn");
-const activeSearchBtn = document.querySelector(".activeSearchBtn");
+const searchBtn = document.querySelector(".search-activator-btn");
+const activeSearchBtn = document.querySelector(".active-search-btn");
 const exploreBtn = document.querySelector(".fa-ellipsis-h");
 const exploreWindow = document.querySelector(
   ".bottom-main-menu-container-wrap"
@@ -24,7 +23,6 @@ const userInput = document.querySelector(".user-input");
 burgerBtn.addEventListener("click", () => {
   BurgerMenu.classList.toggle("active");
   burgerBtn.classList.toggle("active");
-  BurgerMenuWrap.classList.toggle("active");
 });
 exploreBtn.addEventListener("click", () => {
   exploreWindow.classList.toggle("active");
@@ -52,4 +50,5 @@ function updateSearch(query) {
 }
 function displayForecast(weather) {
   console.log(weather.forecast);
+  bottomMainContainer.classList.toggle("activeSearch");
 }
