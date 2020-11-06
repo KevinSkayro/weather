@@ -146,6 +146,43 @@
   justify-content: space-around;
   align-items: center;
 }
+.bottom-main-menu-container .activeSearch {
+  justify-content: space-between;
+  /* padding: 0 10px; */
+}
+.activeSearch .home,
+.activeSearch .explore,
+.activeSearch .search {
+  display: none !important;
+}
+.input-form {
+  width: calc(100% - 55px);
+  display: none !important;
+}
+.return-btn {
+  display: none;
+}
+.activeSearch .return-btn {
+  display: block;
+}
+.activeSearch .input-form {
+  display: flex !important;
+}
+input {
+  font-size: 2rem;
+  width: calc(100% - 60px);
+  height: 4.3rem;
+  border: none;
+  padding: 0 10px;
+}
+.activeSearchBtn {
+  border: none;
+  background-color: #fff;
+  margin-left: 5px;
+}
+.activeSearchBtn i {
+  font-size: 3rem;
+}
 .bottom-main-menu-container i {
   cursor: pointer;
 }
