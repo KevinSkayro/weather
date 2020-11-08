@@ -6,7 +6,7 @@ const api = {
 //Burger menu selectors
 const burgerBtn = document.querySelector(".burger-menu");
 const BurgerMenu = document.querySelector(".top-settings-menu");
-//bottom menu selectors
+//Bottom menu selectors
 const bottomMainContainer = document.querySelector(
   ".bottom-main-menu-container"
 );
@@ -19,6 +19,14 @@ const exploreWindow = document.querySelector(
   ".bottom-main-menu-container-wrap"
 );
 const userInput = document.querySelector(".user-input");
+//Main Body selectors
+const city = document.querySelector(".city");
+const state = document.querySelector(".state");
+const date = document.querySelector(".date");
+const tempeture = document.querySelector(".tempeture");
+const feelsLikeTemp = document.querySelector(".feels-like-temp");
+const weatherCondition = document.querySelector(".weather-state-container");
+
 //Event listeners
 burgerBtn.addEventListener("click", () => {
   BurgerMenu.classList.toggle("active");
@@ -49,6 +57,15 @@ function updateSearch(query) {
     .then(displayForecast);
 }
 function displayForecast(weather) {
-  console.log(weather.forecast);
+  console.log(weather);
+  city.innerText = `${weather.location.name}`;
+  state.innerText = `${weather.location.region}`;
+  date.innerText = `${weather.forecast.forecastday[0].date}`;
+  tempeture.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
+  feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+    weather.current.feelslike_f
+  )}&deg;F`;
+  weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
   bottomMainContainer.classList.toggle("activeSearch");
+  userInput.value = "";
 }
