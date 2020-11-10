@@ -82,6 +82,11 @@
   font-weight: 700;
   margin: 0.5rem;
 }
+.top-settings-menu .celsius {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
 .city-container {
   height: 10vh;
   display: flex;
