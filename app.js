@@ -69,11 +69,12 @@ fahrenheitBtn.addEventListener("click", () => {
 
 function getQuery(e) {
   e.preventDefault();
-  if (maincontainer.classList.contains("celsius")) {
-    updateSearchcel(userInput.value);
-  } else {
-    updateSearch(userInput.value);
-  }
+  updateSearch(userInput.value);
+  //   if (maincontainer.classList.contains("celsius")) {
+  //     updateSearchcel(userInput.value);
+  //   } else {
+  //     updateSearch(userInput.value);
+  //   }
 }
 function updateSearch(query) {
   fetch(`${api.base}/forecast.json?key=${api.key}&q=${query}&days=3`)
@@ -87,32 +88,39 @@ function displayForecast(weather) {
   city.innerText = `${weather.location.name}`;
   state.innerText = `${weather.location.region}`;
   date.innerText = `${weather.forecast.forecastday[0].date}`;
-  tempeture.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
-  feelsLikeTemp.innerHTML = `Feels like ${Math.round(
-    weather.current.feelslike_f
-  )}&deg;F`;
+  if (maincontainer.classList.contains("celsius")) {
+    tempeture.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
+    feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+      weather.current.feelslike_c
+    )}&deg;C`;
+  } else {
+    tempeture.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
+    feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+      weather.current.feelslike_f
+    )}&deg;F`;
+  }
   weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
   bottomMainContainer.classList.toggle("activeSearch");
   userInput.value = "";
 }
 
-function updateSearchcel(query) {
-  fetch(`${api.base}/forecast.json?key=${api.key}&q=${query}&days=3`)
-    .then((weatherc) => {
-      return weatherc.json();
-    })
-    .then(displayForecastc);
-}
-function displayForecastc(weather) {
-  console.log(weather);
-  city.innerText = `${weather.location.name}`;
-  state.innerText = `${weather.location.region}`;
-  date.innerText = `${weather.forecast.forecastday[0].date}`;
-  tempeture.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
-  feelsLikeTemp.innerHTML = `Feels like ${Math.round(
-    weather.current.feelslike_c
-  )}&deg;C`;
-  weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
-  bottomMainContainer.classList.toggle("activeSearch");
-  userInput.value = "";
-}
+// function updateSearchcel(query) {
+//   fetch(`${api.base}/forecast.json?key=${api.key}&q=${query}&days=3`)
+//     .then((weatherc) => {
+//       return weatherc.json();
+//     })
+//     .then(displayForecastc);
+// }
+// function displayForecastc(weather) {
+//   console.log(weather);
+//   city.innerText = `${weather.location.name}`;
+//   state.innerText = `${weather.location.region}`;
+//   date.innerText = `${weather.forecast.forecastday[0].date}`;
+//   tempeture.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
+//   feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+//     weather.current.feelslike_c
+//   )}&deg;C`;
+//   weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
+//   bottomMainContainer.classList.toggle("activeSearch");
+//   userInput.value = "";
+// }
