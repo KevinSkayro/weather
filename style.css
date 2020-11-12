@@ -62,7 +62,38 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
+
+.top-settings-menu:before,
+.top-settings-menu:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* -moz-border-radius: 1rem;
+  border-radius: 1rem; */
+}
+.top-settings-menu:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
 .top-settings-menu.active {
   transform: translateX(0);
 }
@@ -126,6 +157,21 @@
   flex-direction: column;
   align-items: center;
 }
+.current-details {
+  margin-top: 40vh;
+  width: 100%;
+  min-height: 200px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.cd-header {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 .bottom-main-menu-container-wrap {
   background-color: #fff;
   height: 80px;
@@ -135,7 +181,38 @@
   width: 90%;
   border-radius: 1rem;
   transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
+
+.bottom-main-menu-container-wrap:before,
+.bottom-main-menu-container-wrap:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -moz-border-radius: 1rem;
+  border-radius: 1rem;
+}
+.bottom-main-menu-container-wrap:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
 .bottom-main-menu-container-wrap.active {
   height: 400px;
 }
