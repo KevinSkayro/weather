@@ -54,9 +54,9 @@ celsiusBtn.addEventListener("click", () => {
   fahrenheitBtn.style.background = "#fff";
   fahrenheitBtn.style.color = "#000";
   fahrenheitBtn.style.border = "1px solid #000";
+  updateSearch(city.innerText);
 });
 fahrenheitBtn.addEventListener("click", () => {
-  maincontainer.classList.add("celsius");
   fahrenheitBtn.style.background = "#000";
   fahrenheitBtn.style.color = "#fff";
   fahrenheitBtn.style.border = "none";
@@ -64,6 +64,7 @@ fahrenheitBtn.addEventListener("click", () => {
   celsiusBtn.style.color = "#000";
   celsiusBtn.style.border = "1px solid #000";
   maincontainer.classList.remove("celsius");
+  updateSearch(city.innerText);
 });
 //Functions
 
