@@ -215,7 +215,22 @@
 
 .bottom-main-menu-container-wrap.active {
   height: 400px;
+  padding: 10px;
 }
+.weather-preview {
+  height: calc(100% - 100px);
+  width: 100%;
+  flex-direction: column;
+  display: none;
+}
+.active .weather-preview {
+  display: flex;
+}
+
+.preview {
+  flex: 1;
+}
+
 .bottom-main-menu-container {
   background-color: #fff;
   height: 80px;
