@@ -29,6 +29,12 @@ const date = document.querySelector(".date");
 const tempeture = document.querySelector(".tempeture");
 const feelsLikeTemp = document.querySelector(".feels-like-temp");
 const weatherCondition = document.querySelector(".weather-state-container");
+const humidity = document.querySelector(".humidity");
+const pressure = document.querySelector(".pressure");
+const uvIndex = document.querySelector(".uv-index");
+const visibility = document.querySelector(".visibility");
+const wind = document.querySelector(".wind");
+const windDirection = document.querySelector(".wind-dir");
 
 //Event listeners
 burgerBtn.addEventListener("click", () => {
@@ -99,13 +105,83 @@ function displayForecast(weather) {
     feelsLikeTemp.innerHTML = `Feels like ${Math.round(
       weather.current.feelslike_c
     )}&deg;C`;
+    pressure.innerText = `${weather.current.pressure_mb}mBar`;
+    visibility.innerText = `${weather.current.vis_km} km`;
+    wind.innerText = `${weather.current.wind_kph} km/h`;
   } else {
     tempeture.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
     feelsLikeTemp.innerHTML = `Feels like ${Math.round(
       weather.current.feelslike_f
     )}&deg;F`;
+    pressure.innerText = `${weather.current.pressure_in}inHg`;
+    visibility.innerText = `${weather.current.vis_miles} mi`;
+    wind.innerText = `${weather.current.wind_mph} mph`;
   }
   weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
-  bottomMainContainer.classList.toggle("activeSearch");
+  humidity.innerText = `${weather.current.humidity}%`;
+
+  if (weather.current.uv < 3) {
+    uvIndex.innerText = `Low, ${weather.current.uv}`;
+  } else if (weather.current.uv < 6) {
+    uvIndex.innerText = `Moderate, ${weather.current.uv}`;
+  } else if (weather.current.uv < 8) {
+    uvIndex.innerText = `High, ${weather.current.uv}`;
+  } else if (weather.current.uv < 11) {
+    uvIndex.innerText = `Very High, ${weather.current.uv}`;
+  } else if (weather.current.uv > 11) {
+    uvIndex.innerText = `Extreme, ${weather.current.uv}`;
+  }
+
+  switch (weather.current.wind_dir) {
+    case "N":
+      windDirection.innerText = "North";
+      break;
+    case "NNE":
+      windDirection.innerText = "North North East";
+      break;
+    case "NE":
+      windDirection.innerText = "North East";
+      break;
+    case "E":
+      windDirection.innerText = "East";
+      break;
+    case "ESE":
+      windDirection.innerText = "East South East";
+      break;
+    case "SE":
+      windDirection.innerText = "South East";
+      break;
+    case "SSE":
+      windDirection.innerText = "South South East";
+      break;
+    case "S":
+      windDirection.innerText = "South";
+      break;
+    case "SSW":
+      windDirection.innerText = "South South West";
+      break;
+    case "SW":
+      windDirection.innerText = "South West";
+      break;
+    case "WSW":
+      windDirection.innerText = "West South West";
+      break;
+    case "W":
+      windDirection.innerText = "West";
+      break;
+    case "WNW":
+      windDirection.innerText = "West North West";
+      break;
+    case "NW":
+      windDirection.innerText = "North West";
+      break;
+    case "NNW":
+      windDirection.innerText = "North North West";
+      break;
+  }
+
+  //weather preview on explore btn
+
+  bottomMainContainer.classList.remove("activeSearch");
   userInput.value = "";
 }
