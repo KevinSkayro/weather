@@ -12,7 +12,7 @@
 .hero-background {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
     url(./IMG/mist.png) center/cover no-repeat fixed;
-  height: 200vh;
+  height: 160vh;
   color: #fff;
 }
 .top-section {
@@ -172,6 +172,12 @@
   font-weight: 700;
 }
 
+.current-details div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
 .bottom-main-menu-container-wrap {
   background-color: #fff;
   height: 80px;
