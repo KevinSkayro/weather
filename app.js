@@ -21,19 +21,19 @@ const exploreWindow = document.querySelector(
   ".bottom-main-menu-container-wrap"
 );
 const userInput = document.querySelector(".user-input");
-//Main Body selectors
+//Main Body selectors day 1
 const maincontainer = document.querySelector(".mid-section");
-const city = document.querySelector(".city");
-const state = document.querySelector(".state");
-const date = document.querySelector(".date");
-const tempeture = document.querySelector(".tempeture");
-const feelsLikeTemp = document.querySelector(".feels-like-temp");
-const weatherCondition = document.querySelector(".weather-state-container");
-const humidity = document.querySelector(".humidity");
-const pressure = document.querySelector(".pressure");
-const uvIndex = document.querySelector(".uv-index");
-const visibility = document.querySelector(".visibility");
-const wind = document.querySelector(".wind");
+const cityDayOne = document.querySelector(".city-day1");
+const stateDayOne = document.querySelector(".state-day1");
+const dateDayOne = document.querySelector(".date-day1");
+const tempetureDayOne = document.querySelector(".tempeture-day1");
+const feelsLikeTempDayOne = document.querySelector(".feels-like-temp-day1");
+const weatherConditionDayOne = document.querySelector(".weather-state-day1");
+const humidityDayOne = document.querySelector(".humidity-day1");
+const pressureDayOne = document.querySelector(".pressure-day1");
+const uvIndexDayOne = document.querySelector(".uv-index-day1");
+const visibilityDayOne = document.querySelector(".visibility-day1");
+const windDayOne = document.querySelector(".wind-day1");
 const windDirection = document.querySelector(".wind-dir");
 
 //Event listeners
@@ -97,39 +97,39 @@ function updateSearch(query) {
 }
 function displayForecast(weather) {
   console.log(weather);
-  city.innerText = `${weather.location.name}`;
-  state.innerText = `${weather.location.region}`;
-  date.innerText = `${weather.forecast.forecastday[0].date}`;
+  cityDayOne.innerText = `${weather.location.name}`;
+  stateDayOne.innerText = `${weather.location.region}`;
+  dateDayOne.innerText = `${weather.forecast.forecastday[0].date}`;
   if (maincontainer.classList.contains("celsius")) {
-    tempeture.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
-    feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+    tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
+    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(
       weather.current.feelslike_c
     )}&deg;C`;
-    pressure.innerText = `${weather.current.pressure_mb}mBar`;
-    visibility.innerText = `${weather.current.vis_km} km`;
-    wind.innerText = `${weather.current.wind_kph} km/h`;
+    pressureDayOne.innerText = `${weather.current.pressure_mb}mBar`;
+    visibilityDayOne.innerText = `${weather.current.vis_km} km`;
+    windDayOne.innerText = `${weather.current.wind_kph} km/h`;
   } else {
-    tempeture.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
-    feelsLikeTemp.innerHTML = `Feels like ${Math.round(
+    tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
+    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(
       weather.current.feelslike_f
     )}&deg;F`;
-    pressure.innerText = `${weather.current.pressure_in}inHg`;
-    visibility.innerText = `${weather.current.vis_miles} mi`;
-    wind.innerText = `${weather.current.wind_mph} mph`;
+    pressureDayOne.innerText = `${weather.current.pressure_in}inHg`;
+    visibilityDayOne.innerText = `${weather.current.vis_miles} mi`;
+    windDayOne.innerText = `${weather.current.wind_mph} mph`;
   }
-  weatherCondition.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
-  humidity.innerText = `${weather.current.humidity}%`;
+  weatherConditionDayOne.innerHTML = `<img src="${weather.current.condition.icon}" alt="weather state icon"/> ${weather.current.condition.text}`;
+  humidityDayOne.innerText = `${weather.current.humidity}%`;
 
   if (weather.current.uv < 3) {
-    uvIndex.innerText = `Low, ${weather.current.uv}`;
+    uvIndexDayOne.innerText = `Low, ${weather.current.uv}`;
   } else if (weather.current.uv < 6) {
-    uvIndex.innerText = `Moderate, ${weather.current.uv}`;
+    uvIndexDayOne.innerText = `Moderate, ${weather.current.uv}`;
   } else if (weather.current.uv < 8) {
-    uvIndex.innerText = `High, ${weather.current.uv}`;
+    uvIndexDayOne.innerText = `High, ${weather.current.uv}`;
   } else if (weather.current.uv < 11) {
-    uvIndex.innerText = `Very High, ${weather.current.uv}`;
+    uvIndexDayOne.innerText = `Very High, ${weather.current.uv}`;
   } else if (weather.current.uv > 11) {
-    uvIndex.innerText = `Extreme, ${weather.current.uv}`;
+    uvIndexDayOne.innerText = `Extreme, ${weather.current.uv}`;
   }
 
   switch (weather.current.wind_dir) {
@@ -184,4 +184,7 @@ function displayForecast(weather) {
 
   bottomMainContainer.classList.remove("activeSearch");
   userInput.value = "";
+}
+function displaytest(weather) {
+  console.log(weather);
 }
