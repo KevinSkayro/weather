@@ -21,10 +21,14 @@ const exploreWindow = document.querySelector(
   ".bottom-main-menu-container-wrap"
 );
 const userInput = document.querySelector(".user-input");
+const PrevDayOne = document.querySelector(".prev-day1");
+const PrevDayTwo = document.querySelector(".prev-day2");
+const PrevDayThree = document.querySelector(".prev-day3");
 //Main Body selectors day 1
 const maincontainer = document.querySelector(".mid-section");
 const cityDayOne = document.querySelector(".city-day1");
 const stateDayOne = document.querySelector(".state-day1");
+const countryDayOne = document.querySelector(".country-day1");
 const dateDayOne = document.querySelector(".date-day1");
 const tempetureDayOne = document.querySelector(".tempeture-day1");
 const feelsLikeTempDayOne = document.querySelector(".feels-like-temp-day1");
@@ -93,12 +97,24 @@ function updateSearch(query) {
     .then((weather) => {
       return weather.json();
     })
-    .then(displayForecast);
+    .then(masterfunc);
 }
-function displayForecast(weather) {
+
+function masterfunc(weather) {
+  displayPreview(weather);
+  displayForecastDayOne(weather);
+  // displayForecastDayTwo(weather);
+}
+//weather preview on explore btn
+function displayPreview(weather) {
+  console.log(weather.current.temp_f);
+}
+//display day 1 aka today
+function displayForecastDayOne(weather) {
   console.log(weather);
   cityDayOne.innerText = `${weather.location.name}`;
   stateDayOne.innerText = `${weather.location.region}`;
+  countryDayOne.innerText = `${weather.location.country}`;
   dateDayOne.innerText = `${weather.forecast.forecastday[0].date}`;
   if (maincontainer.classList.contains("celsius")) {
     tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
@@ -180,11 +196,6 @@ function displayForecast(weather) {
       break;
   }
 
-  //weather preview on explore btn
-
   bottomMainContainer.classList.remove("activeSearch");
   userInput.value = "";
-}
-function displaytest(weather) {
-  console.log(weather);
 }
