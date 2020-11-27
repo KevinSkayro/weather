@@ -21,9 +21,17 @@ const exploreWindow = document.querySelector(
   ".bottom-main-menu-container-wrap"
 );
 const userInput = document.querySelector(".user-input");
+//Weather preview selectors
 const PrevDayOne = document.querySelector(".prev-day1");
+const PrevDayOneSecOne = document.querySelector(".prev-day1-sec1");
+const PrevDayOneSecTwo = document.querySelector(".prev-day1-sec2");
 const PrevDayTwo = document.querySelector(".prev-day2");
+const PrevDayTwoSecOne = document.querySelector(".prev-day2-sec1");
+const PrevDayTwoSecTwo = document.querySelector(".prev-day2-sec2");
 const PrevDayThree = document.querySelector(".prev-day3");
+const PrevDayThreeSecOne = document.querySelector(".prev-day3-sec1");
+const PrevDayThreeSecTwo = document.querySelector(".prev-day3-sec2");
+
 //Main Body selectors day 1
 const maincontainer = document.querySelector(".mid-section");
 const cityDayOne = document.querySelector(".city-day1");
@@ -64,7 +72,7 @@ celsiusBtn.addEventListener("click", () => {
   fahrenheitBtn.style.background = "#fff";
   fahrenheitBtn.style.color = "#000";
   fahrenheitBtn.style.border = "1px solid #000";
-  updateSearch(city.innerText);
+  updateSearch(cityDayOne.innerText);
 });
 fahrenheitBtn.addEventListener("click", () => {
   fahrenheitBtn.style.background = "#000";
@@ -74,7 +82,7 @@ fahrenheitBtn.addEventListener("click", () => {
   celsiusBtn.style.color = "#000";
   celsiusBtn.style.border = "1px solid #000";
   maincontainer.classList.remove("celsius");
-  updateSearch(city.innerText);
+  updateSearch(cityDayOne.innerText);
 });
 //Functions
 
@@ -107,7 +115,59 @@ function masterfunc(weather) {
 }
 //weather preview on explore btn
 function displayPreview(weather) {
-  console.log(weather.current.temp_f);
+  PrevDayOneSecOne.innerHTML = `<span>Today</span> <span>${weather.current.condition.text}</span>`;
+  PrevDayTwoSecOne.innerHTML = `<span>${weather.forecast.forecastday[1].date}</span> <span>${weather.forecast.forecastday[1].day.condition.text}</span>`;
+  PrevDayThreeSecOne.innerHTML = `<span>${weather.forecast.forecastday[2].date}</span> <span>${weather.forecast.forecastday[2].day.condition.text}</span>`;
+  if (maincontainer.classList.contains("celsius")) {
+    PrevDayOneSecTwo.innerHTML = `<img src="${
+      weather.current.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[0].day.maxtemp_c
+    )}&deg;C</span><span>${Math.round(
+      weather.forecast.forecastday[0].day.mintemp_c
+    )}&deg;C</span></div>`;
+
+    PrevDayTwoSecTwo.innerHTML = `<img src="${
+      weather.forecast.forecastday[1].day.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[1].day.maxtemp_c
+    )}&deg;C</span><span>${Math.round(
+      weather.forecast.forecastday[1].day.mintemp_c
+    )}&deg;C</span></div>`;
+
+    PrevDayThreeSecTwo.innerHTML = `<img src="${
+      weather.forecast.forecastday[2].day.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[2].day.maxtemp_c
+    )}&deg;C</span><span>${Math.round(
+      weather.forecast.forecastday[2].day.mintemp_c
+    )}&deg;C</span></div>`;
+  } else {
+    PrevDayOneSecTwo.innerHTML = `<img src="${
+      weather.current.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[0].day.maxtemp_f
+    )}&deg;F</span>
+    <span>${Math.round(
+      weather.forecast.forecastday[0].day.mintemp_f
+    )}&deg;F</span></div>`;
+
+    PrevDayTwoSecTwo.innerHTML = `<img src="${
+      weather.forecast.forecastday[1].day.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[1].day.maxtemp_f
+    )}&deg;F</span><span>${Math.round(
+      weather.forecast.forecastday[1].day.mintemp_f
+    )}&deg;F</span></div>`;
+
+    PrevDayThreeSecTwo.innerHTML = `<img src="${
+      weather.forecast.forecastday[2].day.condition.icon
+    }"/> <div><span>${Math.round(
+      weather.forecast.forecastday[2].day.maxtemp_f
+    )}&deg;F</span><span>${Math.round(
+      weather.forecast.forecastday[2].day.mintemp_f
+    )}&deg;F</span></div>`;
+  }
 }
 //display day 1 aka today
 function displayForecastDayOne(weather) {
