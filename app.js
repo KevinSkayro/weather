@@ -32,8 +32,13 @@ const PrevDayThree = document.querySelector(".prev-day3");
 const PrevDayThreeSecOne = document.querySelector(".prev-day3-sec1");
 const PrevDayThreeSecTwo = document.querySelector(".prev-day3-sec2");
 
-//Main Body selectors day 1
-const maincontainer = document.querySelector(".mid-section");
+//Main Body selectors
+const mainContainer = document.querySelector(".main-container");
+const midContainer = document.querySelectorAll(".mid-section");
+const dayOne = document.querySelector(".day1");
+const dayTwo = document.querySelector(".day2");
+const dayThree = document.querySelector(".day3");
+//Day one selectors
 const cityDayOne = document.querySelector(".city-day1");
 const stateDayOne = document.querySelector(".state-day1");
 const countryDayOne = document.querySelector(".country-day1");
@@ -65,7 +70,7 @@ returnBtn.addEventListener("click", () => {
 activeSearchBtn.addEventListener("click", getQuery);
 
 celsiusBtn.addEventListener("click", () => {
-  maincontainer.classList.add("celsius");
+  mainContainer.classList.add("celsius");
   celsiusBtn.style.background = "#000";
   celsiusBtn.style.color = "#fff";
   celsiusBtn.style.border = "none";
@@ -81,9 +86,22 @@ fahrenheitBtn.addEventListener("click", () => {
   celsiusBtn.style.background = "#fff";
   celsiusBtn.style.color = "#000";
   celsiusBtn.style.border = "1px solid #000";
-  maincontainer.classList.remove("celsius");
+  mainContainer.classList.remove("celsius");
   updateSearch(cityDayOne.innerText);
 });
+PrevDayOne.addEventListener("click", () => {
+  checkForSelectedDay();
+  dayOne.classList.add("active");
+});
+PrevDayTwo.addEventListener("click", () => {
+  checkForSelectedDay();
+  dayTwo.classList.add("active");
+});
+PrevDayThree.addEventListener("click", () => {
+  checkForSelectedDay();
+  dayThree.classList.add("active");
+});
+
 //Functions
 
 function getQuery(e) {
@@ -114,11 +132,12 @@ function masterfunc(weather) {
   // displayForecastDayTwo(weather);
 }
 //weather preview on explore btn
+
 function displayPreview(weather) {
   PrevDayOneSecOne.innerHTML = `<span>Today</span> <span>${weather.current.condition.text}</span>`;
   PrevDayTwoSecOne.innerHTML = `<span>${weather.forecast.forecastday[1].date}</span> <span>${weather.forecast.forecastday[1].day.condition.text}</span>`;
   PrevDayThreeSecOne.innerHTML = `<span>${weather.forecast.forecastday[2].date}</span> <span>${weather.forecast.forecastday[2].day.condition.text}</span>`;
-  if (maincontainer.classList.contains("celsius")) {
+  if (mainContainer.classList.contains("celsius")) {
     PrevDayOneSecTwo.innerHTML = `<img src="${
       weather.current.condition.icon
     }"/> <div><span>${Math.round(
@@ -176,7 +195,7 @@ function displayForecastDayOne(weather) {
   stateDayOne.innerText = `${weather.location.region}`;
   countryDayOne.innerText = `${weather.location.country}`;
   dateDayOne.innerText = `${weather.forecast.forecastday[0].date}`;
-  if (maincontainer.classList.contains("celsius")) {
+  if (mainContainer.classList.contains("celsius")) {
     tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
     feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(
       weather.current.feelslike_c
@@ -258,4 +277,12 @@ function displayForecastDayOne(weather) {
 
   bottomMainContainer.classList.remove("activeSearch");
   userInput.value = "";
+}
+
+function checkForSelectedDay() {
+  midContainer.forEach((day) => {
+    if (day.classList.contains("active")) {
+      day.classList.remove("active");
+    }
+  });
 }
