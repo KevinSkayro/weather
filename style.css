@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+.bold {
+  font-weight: 700;
+}
 .main-container,
 .main-inner-container {
   position: relative;
@@ -155,6 +158,13 @@
   justify-content: center;
   align-items: flex-start;
 }
+.maxmin-temp-container {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 1rem;
+}
 .tempeture-container {
   height: 20vh;
   display: flex;
@@ -162,6 +172,10 @@
   align-items: center;
   font-size: 8rem;
   font-weight: 700;
+  flex-direction: column;
+}
+.avgTemp-day2 {
+  font-size: 1.5rem;
 }
 .feels-like-temp-container {
   height: 5vh;
