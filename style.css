@@ -57,6 +57,7 @@
 .top-settings-menu {
   position: fixed;
   width: 80%;
+  max-width: 500px;
   background-color: #fff;
   height: 100vh;
   min-height: 200px;
@@ -110,6 +111,7 @@
   background-color: #000;
   color: #fff;
   min-width: 5rem;
+  max-width: 215px;
   width: 25vw;
   height: 2rem;
   border-radius: 1rem;
@@ -174,7 +176,8 @@
   font-weight: 700;
   flex-direction: column;
 }
-.avgTemp-day2 {
+.avgTemp-day2,
+.avgTemp-day3 {
   font-size: 1.5rem;
 }
 .feels-like-temp-container {
