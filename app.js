@@ -130,16 +130,19 @@ fahrenheitBtn.addEventListener("click", () => {
 PrevDayOne.addEventListener("click", () => {
   checkForSelectedDay();
   dayOne.classList.add("active");
+  exploreWindow.classList.toggle("active");
 });
 
 PrevDayTwo.addEventListener("click", () => {
   checkForSelectedDay();
   dayTwo.classList.add("active");
+  exploreWindow.classList.toggle("active");
 });
 
 PrevDayThree.addEventListener("click", () => {
   checkForSelectedDay();
   dayThree.classList.add("active");
+  exploreWindow.classList.toggle("active");
 });
 
 //Functions
@@ -180,6 +183,8 @@ function masterfunc(weather) {
   displayForecastDayOne(weather);
   displayForecastDayTwo(weather);
   displayForecastDayThree(weather);
+  bottomMainContainer.classList.remove("activeSearch");
+  userInput.value = "";
 }
 
 //weather preview on explore btn
@@ -337,9 +342,6 @@ function displayForecastDayOne(weather) {
       windDirection.innerText = "North North West";
       break;
   }
-
-  bottomMainContainer.classList.remove("activeSearch");
-  userInput.value = "";
 }
 
 //display day 2
