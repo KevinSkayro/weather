@@ -75,7 +75,6 @@
     0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-
 .top-settings-menu:before,
 .top-settings-menu:after {
   content: "";
@@ -98,7 +97,6 @@
   -o-transform: skew(8deg) rotate(3deg);
   transform: skew(8deg) rotate(3deg);
 }
-
 .top-settings-menu.active {
   transform: translateX(0);
 }
@@ -229,7 +227,6 @@
     0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-
 .bottom-main-menu-container-wrap:before,
 .bottom-main-menu-container-wrap:after {
   content: "";
@@ -254,7 +251,6 @@
   -o-transform: skew(8deg) rotate(3deg);
   transform: skew(8deg) rotate(3deg);
 }
-
 .bottom-main-menu-container-wrap.active {
   height: 400px;
   padding: 10px;
@@ -291,7 +287,6 @@
   flex-direction: row;
   align-items: center;
 }
-
 .bottom-main-menu-container {
   background-color: #fff;
   height: 80px;
@@ -306,7 +301,6 @@
   justify-content: space-around;
   align-items: center;
 }
-
 .activeSearch .home,
 .activeSearch .explore,
 .activeSearch .search {
