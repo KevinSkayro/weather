@@ -50,6 +50,7 @@ const countryDayOne = document.querySelector(".country-day1");
 const dateDayOne = document.querySelector(".date-day1");
 const maxMinTempDayOne = document.querySelector(".max-min-temp-day1");
 const tempetureDayOne = document.querySelector(".tempeture-day1");
+const tempContainer = document.querySelectorAll(".tempeture-container");
 const feelsLikeTempDayOne = document.querySelector(".feels-like-temp-day1");
 const weatherConditionDayOne = document.querySelector(".weather-state-day1");
 const humidityDayOne = document.querySelector(".humidity-day1");
@@ -66,6 +67,7 @@ const countryDayTwo = document.querySelector(".country-day2");
 const dateDayTwo = document.querySelector(".date-day2");
 const maxMinTempDayTwo = document.querySelector(".max-min-temp-day2");
 const tempetureDayTwo = document.querySelector(".tempeture-day2");
+const avgTempHeaderDayTwo = document.querySelector(".avgTemp-day2");
 const weatherConditionDayTwo = document.querySelector(".weather-state-day2");
 const humidityDayTwo = document.querySelector(".humidity-day2");
 const uvIndexDayTwo = document.querySelector(".uv-index-day2");
@@ -79,6 +81,7 @@ const countryDayThree = document.querySelector(".country-day3");
 const dateDayThree = document.querySelector(".date-day3");
 const maxMinTempDayThree = document.querySelector(".max-min-temp-day3");
 const tempetureDayThree = document.querySelector(".tempeture-day3");
+const avgTempHeaderDayThree = document.querySelector(".avgTemp-day3");
 const weatherConditionDayThree = document.querySelector(".weather-state-day3");
 const humidityDayThree = document.querySelector(".humidity-day3");
 const uvIndexDayThree = document.querySelector(".uv-index-day3");
@@ -167,7 +170,68 @@ function updateSearch(query) {
     .then((weather) => {
       return weather.json();
     })
-    .then(masterfunc);
+    .then(masterfunc)
+    .catch(() => {
+      //day 1
+      cityDayOne.innerText = "";
+      stateDayOne.innerText = "";
+      countryDayOne.innerText = "Something ";
+      countryDayOne.style.fontSize = "3rem";
+      dateDayOne.innerText = "went wrong!";
+      dateDayOne.style.fontSize = "3rem";
+      maxMinTempDayOne.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayOne.style.textAlign = "center";
+      tempContainer[0].style.height = "0";
+      tempetureDayOne.innerText = "";
+      feelsLikeTempDayOne.innerText = "";
+      weatherConditionDayOne.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
+      weatherConditionDayOne.getElementsByTagName("img")[0].style.maxWidth =
+        "200px";
+      humidityDayOne.innerText = "";
+      pressureDayOne.innerText = "";
+      uvIndexDayOne.innerText = "";
+      visibilityDayOne.innerText = "";
+      windDayOne.innerText = "";
+      windDirection.innerText = "";
+      //day 2
+      cityDayTwo.innerText = "";
+      stateDayTwo.innerText = "";
+      countryDayTwo.innerText = "Something ";
+      countryDayTwo.style.fontSize = "3rem";
+      dateDayTwo.innerText = "went wrong!";
+      dateDayTwo.style.fontSize = "3rem";
+      maxMinTempDayTwo.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayTwo.style.textAlign = "center";
+      tempContainer[1].style.height = "2rem";
+      tempetureDayTwo.innerText = "";
+      avgTempHeaderDayTwo.innerText = "";
+      weatherConditionDayTwo.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
+      weatherConditionDayTwo.getElementsByTagName("img")[0].style.maxWidth =
+        "200px";
+      humidityDayTwo.innerText = "";
+      uvIndexDayTwo.innerText = "";
+      visibilityDayTwo.innerText = "";
+      windDayTwo.innerText = "";
+      //day 3
+      cityDayThree.innerText = "";
+      stateDayThree.innerText = "";
+      countryDayThree.innerText = "Something ";
+      countryDayThree.style.fontSize = "3rem";
+      dateDayThree.innerText = "went wrong!";
+      dateDayThree.style.fontSize = "3rem";
+      maxMinTempDayThree.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayThree.style.textAlign = "center";
+      tempContainer[2].style.height = "2rem";
+      tempetureDayThree.innerText = "";
+      avgTempHeaderDayThree.innerText = "";
+      weatherConditionDayThree.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
+      weatherConditionDayThree.getElementsByTagName("img")[0].style.maxWidth =
+        "200px";
+      humidityDayThree.innerText = "";
+      uvIndexDayThree.innerText = "";
+      visibilityDayThree.innerText = "";
+      windDayThree.innerText = "";
+    });
 }
 
 function checkForSelectedDay() {
@@ -251,6 +315,9 @@ function displayForecastDayOne(weather) {
   stateDayOne.innerText = `${weather.location.region}`;
   countryDayOne.innerText = `${weather.location.country}`;
   dateDayOne.innerText = `${weather.forecast.forecastday[0].date}`;
+  tempContainer[0].style.height = "20vh";
+  countryDayOne.style.fontSize = "1.2rem";
+  dateDayOne.style.fontSize = "1rem";
 
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayOne.innerHTML = `<span class="bold">${Math.round(
@@ -350,6 +417,10 @@ function displayForecastDayTwo(weather) {
   stateDayTwo.innerText = `${weather.location.region}`;
   countryDayTwo.innerText = `${weather.location.country}`;
   dateDayTwo.innerText = `${weather.forecast.forecastday[1].date}`;
+  tempContainer[1].style.height = "20vh";
+  countryDayTwo.style.fontSize = "1.2rem";
+  dateDayTwo.style.fontSize = "1rem";
+  avgTempHeaderDayTwo.innerText = "Average Tempeture";
 
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayTwo.innerHTML = `<span class="bold">${Math.round(
@@ -399,6 +470,10 @@ function displayForecastDayThree(weather) {
   stateDayThree.innerText = `${weather.location.region}`;
   countryDayThree.innerText = `${weather.location.country}`;
   dateDayThree.innerText = `${weather.forecast.forecastday[2].date}`;
+  tempContainer[2].style.height = "20vh";
+  countryDayThree.style.fontSize = "1.2rem";
+  dateDayThree.style.fontSize = "1rem";
+  avgTempHeaderDayThree.innerText = "Average Tempeture";
 
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayThree.innerHTML = `<span class="bold">${Math.round(
