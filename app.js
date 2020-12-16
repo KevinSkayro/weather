@@ -94,6 +94,11 @@ burgerBtn.addEventListener("click", () => {
   burgerBtn.classList.toggle("active");
 });
 
+homeBtn.addEventListener("click", () => {
+  checkForSelectedDay();
+  dayOne.classList.add("active");
+});
+
 exploreBtn.addEventListener("click", () => {
   exploreWindow.classList.toggle("active");
 });
