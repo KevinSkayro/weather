@@ -6,3 +6,5 @@ This was a new challenge where I learned a lot of things, the purpose of creatin
 
 - About the fetch calling several function, It took me some thinking but at the end I figured that I could use a master function and pass the API as an argument and then call all the functions inside the master function.
   The reasoning behind wanting to have individual functions for this web app was to better organize the code and have a improved structure since putting everything together would result in a super long function and hard to read structure.
+
+Over all I learned more on how to use API's, after getting this done I totally feel way more confident working with an Application Programming Interface aka API.
