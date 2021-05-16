@@ -12,17 +12,13 @@ const celsiusBtn = document.querySelector(".celsius");
 const fahrenheitBtn = document.querySelector(".fahrenheit");
 
 //Bottom menu selectors
-const bottomMainContainer = document.querySelector(
-  ".bottom-main-menu-container"
-);
+const bottomMainContainer = document.querySelector(".bottom-main-menu-container");
 const homeBtn = document.querySelector(".fa-home");
 const returnBtn = document.querySelector(".fa-chevron-left");
 const searchBtn = document.querySelector(".search-activator-btn");
 const activeSearchBtn = document.querySelector(".active-search-btn");
 const exploreBtn = document.querySelector(".fa-ellipsis-h");
-const exploreWindow = document.querySelector(
-  ".bottom-main-menu-container-wrap"
-);
+const exploreWindow = document.querySelector(".bottom-main-menu-container-wrap");
 const userInput = document.querySelector(".user-input");
 
 //Weather preview selectors
@@ -184,14 +180,13 @@ function updateSearch(query) {
       countryDayOne.style.fontSize = "3rem";
       dateDayOne.innerText = "went wrong!";
       dateDayOne.style.fontSize = "3rem";
-      maxMinTempDayOne.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayOne.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again with a different input.</span>`;
       maxMinTempDayOne.style.textAlign = "center";
       tempContainer[0].style.height = "0";
       tempetureDayOne.innerText = "";
       feelsLikeTempDayOne.innerText = "";
-      weatherConditionDayOne.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
-      weatherConditionDayOne.getElementsByTagName("img")[0].style.maxWidth =
-        "200px";
+      weatherConditionDayOne.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="A little can is sitting and looking at you.">`;
+      weatherConditionDayOne.getElementsByTagName("img")[0].style.maxWidth = "200px";
       humidityDayOne.innerText = "";
       pressureDayOne.innerText = "";
       uvIndexDayOne.innerText = "";
@@ -205,14 +200,13 @@ function updateSearch(query) {
       countryDayTwo.style.fontSize = "3rem";
       dateDayTwo.innerText = "went wrong!";
       dateDayTwo.style.fontSize = "3rem";
-      maxMinTempDayTwo.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayTwo.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again with a different input.</span>`;
       maxMinTempDayTwo.style.textAlign = "center";
       tempContainer[1].style.height = "2rem";
       tempetureDayTwo.innerText = "";
       avgTempHeaderDayTwo.innerText = "";
-      weatherConditionDayTwo.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
-      weatherConditionDayTwo.getElementsByTagName("img")[0].style.maxWidth =
-        "200px";
+      weatherConditionDayTwo.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="A little can is sitting and looking at you">`;
+      weatherConditionDayTwo.getElementsByTagName("img")[0].style.maxWidth = "200px";
       humidityDayTwo.innerText = "";
       uvIndexDayTwo.innerText = "";
       visibilityDayTwo.innerText = "";
@@ -224,14 +218,13 @@ function updateSearch(query) {
       countryDayThree.style.fontSize = "3rem";
       dateDayThree.innerText = "went wrong!";
       dateDayThree.style.fontSize = "3rem";
-      maxMinTempDayThree.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again.</span>`;
+      maxMinTempDayThree.innerHTML = `<span>Couldn't find what you were looking for.</span> <br> <span>Please try again with a different input.</span>`;
       maxMinTempDayThree.style.textAlign = "center";
       tempContainer[2].style.height = "2rem";
       tempetureDayThree.innerText = "";
       avgTempHeaderDayThree.innerText = "";
-      weatherConditionDayThree.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="">`;
-      weatherConditionDayThree.getElementsByTagName("img")[0].style.maxWidth =
-        "200px";
+      weatherConditionDayThree.innerHTML = `<img src="./IMG/search-failed-cat.png" alt="A little can is sitting and looking at you">`;
+      weatherConditionDayThree.getElementsByTagName("img")[0].style.maxWidth = "200px";
       humidityDayThree.innerText = "";
       uvIndexDayThree.innerText = "";
       visibilityDayThree.innerText = "";
@@ -263,52 +256,36 @@ function displayPreview(weather) {
   PrevDayThreeSecOne.innerHTML = `<span>${weather.forecast.forecastday[2].date}</span> <span>${weather.forecast.forecastday[2].day.condition.text}</span>`;
 
   if (mainContainer.classList.contains("celsius")) {
-    PrevDayOneSecTwo.innerHTML = `<img src="${
-      weather.current.condition.icon
-    }"/> <div><span>${Math.round(
+    PrevDayOneSecTwo.innerHTML = `<img src="${weather.current.condition.icon}"/> <div><span>${Math.round(
       weather.forecast.forecastday[0].day.maxtemp_c
-    )}&deg;C</span><span>${Math.round(
-      weather.forecast.forecastday[0].day.mintemp_c
-    )}&deg;C</span></div>`;
+    )}&deg;C</span><span>${Math.round(weather.forecast.forecastday[0].day.mintemp_c)}&deg;C</span></div>`;
 
     PrevDayTwoSecTwo.innerHTML = `<img src="${
       weather.forecast.forecastday[1].day.condition.icon
-    }"/> <div><span>${Math.round(
-      weather.forecast.forecastday[1].day.maxtemp_c
-    )}&deg;C</span><span>${Math.round(
+    }"/> <div><span>${Math.round(weather.forecast.forecastday[1].day.maxtemp_c)}&deg;C</span><span>${Math.round(
       weather.forecast.forecastday[1].day.mintemp_c
     )}&deg;C</span></div>`;
 
     PrevDayThreeSecTwo.innerHTML = `<img src="${
       weather.forecast.forecastday[2].day.condition.icon
-    }"/> <div><span>${Math.round(
-      weather.forecast.forecastday[2].day.maxtemp_c
-    )}&deg;C</span><span>${Math.round(
+    }"/> <div><span>${Math.round(weather.forecast.forecastday[2].day.maxtemp_c)}&deg;C</span><span>${Math.round(
       weather.forecast.forecastday[2].day.mintemp_c
     )}&deg;C</span></div>`;
   } else {
-    PrevDayOneSecTwo.innerHTML = `<img src="${
-      weather.current.condition.icon
-    }"/> <div><span>${Math.round(
+    PrevDayOneSecTwo.innerHTML = `<img src="${weather.current.condition.icon}"/> <div><span>${Math.round(
       weather.forecast.forecastday[0].day.maxtemp_f
     )}&deg;F</span>
-    <span>${Math.round(
-      weather.forecast.forecastday[0].day.mintemp_f
-    )}&deg;F</span></div>`;
+    <span>${Math.round(weather.forecast.forecastday[0].day.mintemp_f)}&deg;F</span></div>`;
 
     PrevDayTwoSecTwo.innerHTML = `<img src="${
       weather.forecast.forecastday[1].day.condition.icon
-    }"/> <div><span>${Math.round(
-      weather.forecast.forecastday[1].day.maxtemp_f
-    )}&deg;F</span><span>${Math.round(
+    }"/> <div><span>${Math.round(weather.forecast.forecastday[1].day.maxtemp_f)}&deg;F</span><span>${Math.round(
       weather.forecast.forecastday[1].day.mintemp_f
     )}&deg;F</span></div>`;
 
     PrevDayThreeSecTwo.innerHTML = `<img src="${
       weather.forecast.forecastday[2].day.condition.icon
-    }"/> <div><span>${Math.round(
-      weather.forecast.forecastday[2].day.maxtemp_f
-    )}&deg;F</span><span>${Math.round(
+    }"/> <div><span>${Math.round(weather.forecast.forecastday[2].day.maxtemp_f)}&deg;F</span><span>${Math.round(
       weather.forecast.forecastday[2].day.mintemp_f
     )}&deg;F</span></div>`;
   }
@@ -327,26 +304,18 @@ function displayForecastDayOne(weather) {
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayOne.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[0].day.maxtemp_c
-    )} &deg;C&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[0].day.mintemp_c
-    )}&deg;C&darr;`;
+    )} &deg;C&uarr;</span>  ${Math.round(weather.forecast.forecastday[0].day.mintemp_c)}&deg;C&darr;`;
     tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_c)}&deg;C`;
-    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(
-      weather.current.feelslike_c
-    )}&deg;C`;
+    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(weather.current.feelslike_c)}&deg;C`;
     pressureDayOne.innerText = `${weather.current.pressure_mb}mBar`;
     visibilityDayOne.innerText = `${weather.current.vis_km} km`;
     windDayOne.innerText = `${weather.current.wind_kph} km/h`;
   } else {
     maxMinTempDayOne.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[0].day.maxtemp_f
-    )} &deg;F&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[0].day.mintemp_f
-    )}&deg;F&darr;`;
+    )} &deg;F&uarr;</span>  ${Math.round(weather.forecast.forecastday[0].day.mintemp_f)}&deg;F&darr;`;
     tempetureDayOne.innerHTML = `${Math.round(weather.current.temp_f)}&deg;F`;
-    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(
-      weather.current.feelslike_f
-    )}&deg;F`;
+    feelsLikeTempDayOne.innerHTML = `Feels like ${Math.round(weather.current.feelslike_f)}&deg;F`;
     pressureDayOne.innerText = `${weather.current.pressure_in}inHg`;
     visibilityDayOne.innerText = `${weather.current.vis_miles} mi`;
     windDayOne.innerText = `${weather.current.wind_mph} mph`;
@@ -430,27 +399,17 @@ function displayForecastDayTwo(weather) {
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayTwo.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[1].day.maxtemp_c
-    )} &deg;C&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[1].day.mintemp_c
-    )}&deg;C&darr;`;
-    tempetureDayTwo.innerHTML = `${Math.round(
-      weather.forecast.forecastday[1].day.avgtemp_c
-    )}&deg;C`;
+    )} &deg;C&uarr;</span>  ${Math.round(weather.forecast.forecastday[1].day.mintemp_c)}&deg;C&darr;`;
+    tempetureDayTwo.innerHTML = `${Math.round(weather.forecast.forecastday[1].day.avgtemp_c)}&deg;C`;
     visibilityDayTwo.innerText = `${weather.forecast.forecastday[1].day.avgvis_km} km`;
     windDayTwo.innerText = `${weather.forecast.forecastday[1].day.maxwind_kph} km/h`;
   } else {
     maxMinTempDayTwo.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[1].day.maxtemp_f
-    )} &deg;F&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[1].day.mintemp_f
-    )}&deg;F&darr;`;
-    tempetureDayTwo.innerHTML = `${Math.round(
-      weather.forecast.forecastday[1].day.avgtemp_f
-    )}&deg;F`;
+    )} &deg;F&uarr;</span>  ${Math.round(weather.forecast.forecastday[1].day.mintemp_f)}&deg;F&darr;`;
+    tempetureDayTwo.innerHTML = `${Math.round(weather.forecast.forecastday[1].day.avgtemp_f)}&deg;F`;
     visibilityDayTwo.innerText = `${weather.forecast.forecastday[1].day.avgvis_miles} mi`;
-    windDayTwo.innerText = `${Math.round(
-      weather.forecast.forecastday[1].day.maxwind_mph
-    )} mph`;
+    windDayTwo.innerText = `${Math.round(weather.forecast.forecastday[1].day.maxwind_mph)} mph`;
   }
 
   weatherConditionDayTwo.innerHTML = `<img src="${weather.forecast.forecastday[1].day.condition.icon}" alt="weather state icon"/> ${weather.forecast.forecastday[1].day.condition.text}`;
@@ -483,27 +442,17 @@ function displayForecastDayThree(weather) {
   if (mainContainer.classList.contains("celsius")) {
     maxMinTempDayThree.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[2].day.maxtemp_c
-    )} &deg;C&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[2].day.mintemp_c
-    )}&deg;C&darr;`;
-    tempetureDayThree.innerHTML = `${Math.round(
-      weather.forecast.forecastday[2].day.avgtemp_c
-    )}&deg;C`;
+    )} &deg;C&uarr;</span>  ${Math.round(weather.forecast.forecastday[2].day.mintemp_c)}&deg;C&darr;`;
+    tempetureDayThree.innerHTML = `${Math.round(weather.forecast.forecastday[2].day.avgtemp_c)}&deg;C`;
     visibilityDayThree.innerText = `${weather.forecast.forecastday[2].day.avgvis_km} km`;
     windDayThree.innerText = `${weather.forecast.forecastday[2].day.maxwind_kph} km/h`;
   } else {
     maxMinTempDayThree.innerHTML = `<span class="bold">${Math.round(
       weather.forecast.forecastday[2].day.maxtemp_f
-    )} &deg;F&uarr;</span>  ${Math.round(
-      weather.forecast.forecastday[2].day.mintemp_f
-    )}&deg;F&darr;`;
-    tempetureDayThree.innerHTML = `${Math.round(
-      weather.forecast.forecastday[2].day.avgtemp_f
-    )}&deg;F`;
+    )} &deg;F&uarr;</span>  ${Math.round(weather.forecast.forecastday[2].day.mintemp_f)}&deg;F&darr;`;
+    tempetureDayThree.innerHTML = `${Math.round(weather.forecast.forecastday[2].day.avgtemp_f)}&deg;F`;
     visibilityDayThree.innerText = `${weather.forecast.forecastday[2].day.avgvis_miles} mi`;
-    windDayThree.innerText = `${Math.round(
-      weather.forecast.forecastday[2].day.maxwind_mph
-    )} mph`;
+    windDayThree.innerText = `${Math.round(weather.forecast.forecastday[2].day.maxwind_mph)} mph`;
   }
 
   weatherConditionDayThree.innerHTML = `<img src="${weather.forecast.forecastday[2].day.condition.icon}" alt="weather state icon"/> ${weather.forecast.forecastday[1].day.condition.text}`;
