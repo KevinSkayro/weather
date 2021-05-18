@@ -1,9 +1,5 @@
 # Weather API web app
 
-<img align="center" alt="GIF of app review" width="500px" src="https://kevinskayro.co/IMG/weather-app.gif" />
-
-<br />
-
 ### Technologies:
 
 <img align="left" alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
