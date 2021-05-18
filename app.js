@@ -1,6 +1,6 @@
 const api = {
   key: "249e0914f0284c25bda121440200410",
-  base: "http://api.weatherapi.com/v1",
+  base: "https://api.weatherapi.com/v1",
 };
 
 //Selectors
